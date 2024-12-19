@@ -5,4 +5,5 @@ export default defineConfig({
   themeConfig: {
     name: 'Key-UI',
   },
+  favicons: ['/favicon.png'],
 });
