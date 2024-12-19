@@ -44,11 +44,17 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "dependencies": {
+    "classnames": "^2.5.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@testing-library/react": "^16.1.0",
+    "@types/jest": "^29.5.14",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@types/testing-library__react": "^10.2.0",
     "@umijs/lint": "^4.0.0",
     "dumi": "^2.4.13",
     "eslint": "^8.23.0",
