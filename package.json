@@ -46,6 +46,7 @@
     ]
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.2",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

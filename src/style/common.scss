@@ -200,4 +200,35 @@ $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, bo
 $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
 
 
-// -------------------------开关基本属性-------------------------
+// -------------------------Tabs基本属性-------------------------
+$tabs-link-padding-y: 0.5rem;
+$tabs-link-padding-x: 1rem;
+$tabs-link-disabled-color: $disabled-selected-color;
+$tabs-border-color: #dee2e6;
+$tabs-border-width: 1px;
+$tabs-border-radius: 0.25rem;
+$tabs-link-hover-border-color: #e9ecef #e9ecef #dee2e6;
+$tabs-link-hover-color: $primary;
+$tabs-link-active-color: $primary;
+$tabs-link-active-bg: $white;
+$tabs-link-active-border-color: #dee2e6 #dee2e6 $white;
+$tabs-content-margin: 1rem;
+
+$width: 3vw;
+$commaWidth: 0.5vw;
+$gap: 0.2vw;
+$dis: -0.2vw;
+$secTop: $width + $gap;
+$thirdTop: $width * 2 + $gap * 2;
+$secLineTop: $width + $gap * 2;
+$screenTop: $width * 4;
+$numberMargin: 3vw;
+$transformDistance: 50px;
+$bgColor: rgba(255, 255, 255, 1);
+$scale: 0.9;
+$normalColor: #181919;
+$lightColor: #34eabc;
+$darkColor: #3c4444;
+$lightShadow: 0 0 1vw #0bfdfd, inset 0 0 0.125vmin #0bfdfd;
+$darkShadow: 0 0 1vw #425454;
+$animTime: 10s;

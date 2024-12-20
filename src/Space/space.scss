@@ -1,0 +1,11 @@
+@import '/src/style/common.scss';
+
+.space {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  .space-item {
+    display: inline-block;
+  }
+}
+
