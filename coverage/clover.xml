@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1734663263258" clover="3.2.0">
+  <project timestamp="1734663263258" name="All files">
+    <metrics statements="13" coveredstatements="13" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1" elements="24" coveredelements="24" complexity="0" loc="13" ncloc="13" packages="1" files="2" classes="2"/>
+    <file name="button.tsx" path="F:\Documents\GitHub\Key-UI\src\Button\button.tsx">
+      <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="35" count="11" type="stmt"/>
+      <line num="36" count="11" type="stmt"/>
+      <line num="39" count="11" type="stmt"/>
+      <line num="46" count="11" type="cond" truecount="3" falsecount="0"/>
+      <line num="47" count="2" type="stmt"/>
+      <line num="59" count="9" type="stmt"/>
+      <line num="73" count="1" type="stmt"/>
+    </file>
+    <file name="index.ts" path="F:\Documents\GitHub\Key-UI\src\Button\index.ts">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

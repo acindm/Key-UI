@@ -1,0 +1,210 @@
+{
+  "F:\\Documents\\GitHub\\Key-UI\\src\\Button\\button.tsx": {
+    "path": "F:\\Documents\\GitHub\\Key-UI\\src\\Button\\button.tsx",
+    "statementMap": {
+      "0": {
+        "start": { "line": 1, "column": 0 },
+        "end": { "line": 1, "column": 36 }
+      },
+      "1": {
+        "start": { "line": 2, "column": 0 },
+        "end": { "line": 2, "column": 75 }
+      },
+      "2": {
+        "start": { "line": 3, "column": 0 },
+        "end": { "line": 3, "column": 23 }
+      },
+      "3": {
+        "start": { "line": 26, "column": 38 },
+        "end": { "line": 71, "column": 1 }
+      },
+      "4": {
+        "start": { "line": 35, "column": 9 },
+        "end": { "line": 35, "column": null }
+      },
+      "5": {
+        "start": { "line": 36, "column": 14 },
+        "end": { "line": 37, "column": 3 }
+      },
+      "6": {
+        "start": { "line": 39, "column": 18 },
+        "end": { "line": 44, "column": 4 }
+      },
+      "7": {
+        "start": { "line": 46, "column": 2 },
+        "end": { "line": 58, "column": 3 }
+      },
+      "8": {
+        "start": { "line": 47, "column": 4 },
+        "end": { "line": 57, "column": 6 }
+      },
+      "9": {
+        "start": { "line": 59, "column": 2 },
+        "end": { "line": 70, "column": 4 }
+      },
+      "10": {
+        "start": { "line": 73, "column": 0 },
+        "end": { "line": 73, "column": 22 }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": { "line": 26, "column": 38 },
+          "end": { "line": 26, "column": 39 }
+        },
+        "loc": {
+          "start": { "line": 37, "column": 5 },
+          "end": { "line": 71, "column": 1 }
+        }
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": { "line": 29, "column": 2 },
+          "end": { "line": 29, "column": 18 }
+        },
+        "type": "default-arg",
+        "locations": [
+          {
+            "start": { "line": 29, "column": 13 },
+            "end": { "line": 29, "column": 18 }
+          }
+        ]
+      },
+      "1": {
+        "loc": {
+          "start": { "line": 30, "column": 2 },
+          "end": { "line": 30, "column": 17 }
+        },
+        "type": "default-arg",
+        "locations": [
+          {
+            "start": { "line": 30, "column": 9 },
+            "end": { "line": 30, "column": 17 }
+          }
+        ]
+      },
+      "2": {
+        "loc": {
+          "start": { "line": 31, "column": 2 },
+          "end": { "line": 31, "column": 18 }
+        },
+        "type": "default-arg",
+        "locations": [
+          {
+            "start": { "line": 31, "column": 9 },
+            "end": { "line": 31, "column": 18 }
+          }
+        ]
+      },
+      "3": {
+        "loc": {
+          "start": { "line": 42, "column": 14 },
+          "end": { "line": 42, "column": 41 }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 42, "column": 14 },
+            "end": { "line": 42, "column": 29 }
+          },
+          {
+            "start": { "line": 42, "column": 33 },
+            "end": { "line": 42, "column": 41 }
+          }
+        ]
+      },
+      "4": {
+        "loc": {
+          "start": { "line": 43, "column": 12 },
+          "end": { "line": 43, "column": 37 }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 43, "column": 12 },
+            "end": { "line": 43, "column": 27 }
+          },
+          {
+            "start": { "line": 43, "column": 31 },
+            "end": { "line": 43, "column": 37 }
+          }
+        ]
+      },
+      "5": {
+        "loc": {
+          "start": { "line": 46, "column": 2 },
+          "end": { "line": 58, "column": 3 }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": { "line": 46, "column": 2 },
+            "end": { "line": 58, "column": 3 }
+          }
+        ]
+      },
+      "6": {
+        "loc": {
+          "start": { "line": 46, "column": 6 },
+          "end": { "line": 46, "column": 29 }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 46, "column": 6 },
+            "end": { "line": 46, "column": 21 }
+          },
+          {
+            "start": { "line": 46, "column": 25 },
+            "end": { "line": 46, "column": 29 }
+          }
+        ]
+      }
+    },
+    "s": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 11,
+      "5": 11,
+      "6": 11,
+      "7": 11,
+      "8": 2,
+      "9": 9,
+      "10": 1
+    },
+    "f": { "0": 11 },
+    "b": {
+      "0": [9],
+      "1": [10],
+      "2": [9],
+      "3": [11, 2],
+      "4": [11, 9],
+      "5": [2],
+      "6": [11, 2]
+    }
+  },
+  "F:\\Documents\\GitHub\\Key-UI\\src\\Button\\index.ts": {
+    "path": "F:\\Documents\\GitHub\\Key-UI\\src\\Button\\index.ts",
+    "statementMap": {
+      "0": {
+        "start": { "line": 1, "column": 0 },
+        "end": { "line": 1, "column": 47 }
+      },
+      "1": {
+        "start": { "line": 4, "column": 0 },
+        "end": { "line": 4, "column": 22 }
+      }
+    },
+    "fnMap": {},
+    "branchMap": {},
+    "s": { "0": 1, "1": 1 },
+    "f": {},
+    "b": {}
+  }
+}
