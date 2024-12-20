@@ -6,7 +6,7 @@ hero:
     - text: 开始
       link: /guide
     - text: 访问GitHub
-      link: https://github.com/acindm/Key-UI
+      link: https://github.com/acindm/keyui
 features:
   - title: 学习
     emoji: 😺

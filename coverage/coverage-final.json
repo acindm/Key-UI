@@ -1,6 +1,6 @@
 {
-  "F:\\Documents\\GitHub\\Key-UI\\src\\Button\\button.tsx": {
-    "path": "F:\\Documents\\GitHub\\Key-UI\\src\\Button\\button.tsx",
+  "F:\\Documents\\GitHub\\keyui\\src\\Button\\button.tsx": {
+    "path": "F:\\Documents\\GitHub\\keyui\\src\\Button\\button.tsx",
     "statementMap": {
       "0": {
         "start": { "line": 1, "column": 0 },
@@ -189,8 +189,8 @@
       "6": [11, 2]
     }
   },
-  "F:\\Documents\\GitHub\\Key-UI\\src\\Button\\index.ts": {
-    "path": "F:\\Documents\\GitHub\\Key-UI\\src\\Button\\index.ts",
+  "F:\\Documents\\GitHub\\keyui\\src\\Button\\index.ts": {
+    "path": "F:\\Documents\\GitHub\\keyui\\src\\Button\\index.ts",
     "statementMap": {
       "0": {
         "start": { "line": 1, "column": 0 },
