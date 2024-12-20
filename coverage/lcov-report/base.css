@@ -4,21 +4,19 @@ html {
   padding: 0;
   height: 100%;
 }
-
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial;
+  font-family: Helvetica Neue, Helvetica, Arial;
   font-size: 14px;
   color: #333;
 }
 .small {
   font-size: 12px;
 }
-
 *,
-*::after,
-*::before {
-  box-sizing: border-box;
-  box-sizing: border-box;
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 h1 {
@@ -28,13 +26,12 @@ h1 {
 h2 {
   font-size: 14px;
 }
-
 pre {
   font: 12px/1.4 Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   margin: 0;
   padding: 0;
-  tab-size: 2;
-  tab-size: 2;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
   tab-size: 2;
 }
 a {
@@ -48,7 +45,7 @@ a:hover {
   font-weight: bold;
 }
 .space-top1 {
-  padding: 10px 0 0;
+  padding: 10px 0 0 0;
 }
 .pad2y {
   padding: 20px 0;
@@ -77,8 +74,7 @@ a:hover {
 .clearfix {
   display: block;
 }
-
-.clearfix::after {
+.clearfix:after {
   content: '';
   display: block;
   height: 0;
@@ -100,7 +96,7 @@ a:hover {
 
 .quiet {
   color: #7f7f7f;
-  color: rgba(0, 0, 0, 50%);
+  color: rgba(0, 0, 0, 0.5);
 }
 .quiet a {
   opacity: 0.7;
@@ -120,10 +116,9 @@ div.path a:link,
 div.path a:visited {
   color: #333;
 }
-
 table.coverage {
   border-collapse: collapse;
-  margin: 10px 0 0;
+  margin: 10px 0 0 0;
   padding: 0;
 }
 
@@ -132,12 +127,10 @@ table.coverage td {
   padding: 0;
   vertical-align: top;
 }
-
 table.coverage td.line-count {
   text-align: right;
   padding: 0 5px 0 20px;
 }
-
 table.coverage td.line-coverage {
   text-align: right;
   padding-right: 10px;
@@ -149,7 +142,6 @@ table.coverage td span.cline-any {
   padding: 0 5px;
   width: 100%;
 }
-
 .missing-if-branch {
   display: inline-block;
   margin-right: 5px;
@@ -168,12 +160,10 @@ table.coverage td span.cline-any {
   background: #ccc;
   color: white;
 }
-
 .missing-if-branch .typ,
 .skip-if-branch .typ {
   color: inherit !important;
 }
-
 .coverage-summary {
   border-collapse: collapse;
   width: 100%;
@@ -197,7 +187,6 @@ table.coverage td span.cline-any {
 .coverage-summary td:last-child {
   border-right: none;
 }
-
 .coverage-summary th {
   text-align: left;
   font-weight: normal;
@@ -208,7 +197,6 @@ table.coverage td span.cline-any {
 }
 .coverage-summary th.pct {
 }
-
 .coverage-summary th.pic,
 .coverage-summary th.abs,
 .coverage-summary td.pct,
@@ -231,24 +219,20 @@ table.coverage td span.cline-any {
   margin-left: 0.5em;
   background: url(sort-arrow-sprite.png) no-repeat scroll 0 0 transparent;
 }
-
 .coverage-summary .sorted .sorter {
   background-position: 0 -20px;
 }
-
 .coverage-summary .sorted-desc .sorter {
   background-position: 0 -10px;
 }
 .status-line {
   height: 10px;
 }
-
 /* yellow */
 .cbranch-no {
   background: yellow !important;
   color: #111;
 }
-
 /* dark red */
 .red.solid,
 .status-line.low,
@@ -258,14 +242,12 @@ table.coverage td span.cline-any {
 .low .chart {
   border: 1px solid #c21f39;
 }
-
 .highlighted,
 .highlighted .cstat-no,
 .highlighted .fstat-no,
 .highlighted .cbranch-no {
   background: #c21f39 !important;
 }
-
 /* medium red */
 .cstat-no,
 .fstat-no,
@@ -273,24 +255,20 @@ table.coverage td span.cline-any {
 .cbranch-no {
   background: #f6c6ce;
 }
-
 /* light red */
 .low,
 .cline-no {
   background: #fce1e5;
 }
-
 /* light green */
 .high,
 .cline-yes {
   background: rgb(230, 245, 208);
 }
-
 /* medium green */
 .cstat-yes {
   background: rgb(161, 215, 106);
 }
-
 /* dark green */
 .status-line.high,
 .high .cover-fill {
@@ -299,7 +277,6 @@ table.coverage td span.cline-any {
 .high .chart {
   border: 1px solid rgb(77, 146, 33);
 }
-
 /* dark yellow (gold) */
 .status-line.medium,
 .medium .cover-fill {
@@ -308,7 +285,6 @@ table.coverage td span.cline-any {
 .medium .chart {
   border: 1px solid #f9cd0b;
 }
-
 /* light yellow */
 .medium {
   background: #fff4c2;
@@ -344,19 +320,15 @@ span.cline-neutral {
   display: inline-block;
   height: 12px;
 }
-
 .chart {
   line-height: 0;
 }
-
 .cover-empty {
   background: white;
 }
-
 .cover-full {
   border-right: none !important;
 }
-
 pre.prettyprint {
   border: none !important;
   padding: 0 !important;
@@ -376,7 +348,6 @@ pre.prettyprint {
   height: 100%;
   margin: 0 auto -48px;
 }
-
 .footer,
 .push {
   height: 48px;

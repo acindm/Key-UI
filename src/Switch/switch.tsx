@@ -99,7 +99,9 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
         onClick={toggleSwitch}
         ref={ref}
       >
-        <div className="cobalt-switch-dot">{loading}</div>
+        <div className="cobalt-switch-dot">
+          {loading ? <span>Loading...</span> : null}
+        </div>
         {checkedChildren && unCheckedChildren && (
           <div ref={childRef} className="cobalt-switch-child">
             {switchStatus ? checkedChildren : unCheckedChildren}
