@@ -5,12 +5,14 @@ import React, {
   forwardRef,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import './switch.scss';
 
 type SwitchProps = {
   className?: string;
+  children?: ReactNode;
   style?: CSSProperties;
   disabled?: boolean;
   small?: boolean;
@@ -36,13 +38,13 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
     },
     ref,
   ) => {
-    const [switchWidth, setSwitchWidth] = useState<number>(0);
-    const [switchChildWidth, setSwitchChildWidth] = useState<number>(0);
+    const childRef = useRef<HTMLDivElement | null>(null); // 使用 ref 替代 document.querySelector
+    const [switchWidth, setSwitchWidth] = useState<number>(small ? 28 : 40); // 默认宽度
     const [switchStatus, setSwitchStatus] = useState<boolean>(defaultChecked);
 
+    // 获取主题色
     const getSiteTheme = () => {
-      const theme = window.localStorage.getItem('dumi:prefers-color');
-      return theme;
+      return window.localStorage.getItem('dumi:prefers-color') || 'light';
     };
 
     const getRenderColor = (isDark: boolean): string => {
@@ -50,16 +52,17 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
     };
 
     const theme = getSiteTheme();
-    // const { globalColor } = useContext(globalCtx) as GlobalConfigProps;
 
     const classes = classNames(className, 'cobalt-switch');
 
+    // 切换开关状态
     const toggleSwitch = () => {
       if (disabled || loading) return;
       setSwitchStatus(!switchStatus);
       onChange?.(!switchStatus);
     };
 
+    // 计算动态样式
     const switchStyle = useMemo(() => {
       return {
         '--switch-width': `${switchWidth}px`,
@@ -69,45 +72,24 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
           : '4px',
         '--dot-transformY': small ? '2.5px' : '4px',
         '--dot-size': `${small ? '12px' : '16px'}`,
-        '--child-transform': switchStatus
-          ? typeof checkedChildren === 'string'
-            ? `4px`
-            : '8px'
-          : `${
-              switchWidth -
-              switchChildWidth -
-              (typeof checkedChildren === 'string' ? 6 : -2)
-            }px`,
+        '--child-transform': switchStatus ? '4px' : `${switchWidth - 30}px`,
         '--switch-bg': switchStatus
           ? getRenderColor(theme === 'auto' || theme === 'dark')
           : 'rgba(201,205,212,1)',
         '--disabled': disabled || loading ? 'not-allowed' : 'pointer',
         '--opacity': disabled || loading ? '0.6' : '1',
       };
-    }, [switchStatus, disabled, switchWidth, small]);
+    }, [switchStatus, disabled, switchWidth, small, theme]);
 
+    // 动态计算子元素宽度
     useEffect(() => {
-      if (
-        checkedChildren &&
-        unCheckedChildren &&
-        document.querySelector('.cobalt-switch-child')
-      ) {
-        setSwitchChildWidth(
-          (document.querySelector('.cobalt-switch-child') as HTMLDivElement)
-            .clientWidth,
-        );
-        setSwitchWidth(
-          (document.querySelector('.cobalt-switch-child') as HTMLDivElement)
-            .clientWidth + 30,
-        );
+      if (childRef.current) {
+        const childWidth = childRef.current.clientWidth; // 使用 ref 获取子元素宽度
+        setSwitchWidth(childWidth + 30); // 动态调整开关宽度
       } else {
-        setSwitchWidth(small ? 28 : 40);
+        setSwitchWidth(small ? 28 : 40); // 设置默认宽度
       }
-    }, [
-      document.querySelector('.cobalt-switch-child')?.clientWidth,
-      checkedChildren,
-      unCheckedChildren,
-    ]);
+    }, [checkedChildren, unCheckedChildren, small]);
 
     return (
       <div
@@ -119,7 +101,7 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
       >
         <div className="cobalt-switch-dot">{loading}</div>
         {checkedChildren && unCheckedChildren && (
-          <div className="cobalt-switch-child">
+          <div ref={childRef} className="cobalt-switch-child">
             {switchStatus ? checkedChildren : unCheckedChildren}
           </div>
         )}
