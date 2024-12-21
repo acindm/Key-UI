@@ -87,7 +87,7 @@ describe('Switch Component', () => {
     expect(switchElement).toHaveStyle('--dot-size: 12px');
   });
 
-  // // 测试动态宽度计算
+  // // 测试动态宽度计算（下方代码有问题，待修改）
   // it('calculates dynamic width based on children', () => {
   //   // 子元素内容
   //   const checkedChildren = <span>Enabled</span>;

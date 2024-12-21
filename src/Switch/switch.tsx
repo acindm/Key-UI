@@ -10,17 +10,18 @@ import React, {
 } from 'react';
 import './switch.scss';
 
+// 定义组件的属性类型
 type SwitchProps = {
-  className?: string;
-  children?: ReactNode;
-  style?: CSSProperties;
-  disabled?: boolean;
-  small?: boolean;
-  defaultChecked?: boolean;
-  checkedChildren?: ReactNode;
-  unCheckedChildren?: ReactNode;
-  loading?: boolean;
-  onChange?: (checked: boolean) => void;
+  className?: string; // 自定义类名
+  children?: ReactNode; // 子元素
+  style?: CSSProperties; // 行内样式
+  disabled?: boolean; // 是否禁用
+  small?: boolean; // 是否为小尺寸
+  defaultChecked?: boolean; // 默认状态是否选中
+  checkedChildren?: ReactNode; // 选中状态下显示的内容
+  unCheckedChildren?: ReactNode; // 未选中状态下显示的内容
+  loading?: boolean; // 是否为加载状态
+  onChange?: (checked: boolean) => void; // 状态变化时的回调函数
 };
 
 const Switch = forwardRef<HTMLDivElement, SwitchProps>(
@@ -38,7 +39,7 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
     },
     ref,
   ) => {
-    const childRef = useRef<HTMLDivElement | null>(null); // 使用 ref 替代 document.querySelector
+    const childRef = useRef<HTMLDivElement | null>(null);
     const [switchWidth, setSwitchWidth] = useState<number>(small ? 28 : 40); // 默认宽度
     const [switchStatus, setSwitchStatus] = useState<boolean>(defaultChecked);
 
@@ -52,7 +53,6 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
     };
 
     const theme = getSiteTheme();
-
     const classes = classNames(className, 'cobalt-switch');
 
     // 切换开关状态
