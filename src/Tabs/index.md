@@ -29,11 +29,3 @@ group:
 <code src="./demo/disabled.tsx"></code>
 
 ## API
-
-| Name             | Description    | Type            | Default  |
-| ---------------- | -------------- | --------------- | -------- |
-| className        | 自定义类名     | `string`        | `--`     |
-| style            | 自定义样式     | `CSSProperties` | `--`     |
-| defaultActiveKey | 默认激活标签项 | `string`        | `number` |
-| type             | Tabs 类型      | `TabsType`      | `--`     |
-| item             | 未选中 文字    | `TabItemType[]` | `--`     |
