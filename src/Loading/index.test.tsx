@@ -9,7 +9,7 @@ describe('Skeleton 组件', () => {
     render(<Skeleton loading />);
 
     // 验证容器是否存在
-    const skeleton = screen.getByRole('presentation');
+    const skeleton = screen.getByRole('presentation', { hidden: true });
     expect(skeleton).toBeInTheDocument();
 
     // 验证行数
@@ -18,7 +18,6 @@ describe('Skeleton 组件', () => {
   });
 
   it('should render skeleton with custom rows and widths', () => {
-    // 渲染带有自定义行数和宽度的 Skeleton
     render(
       <Skeleton
         loading
@@ -31,7 +30,7 @@ describe('Skeleton 组件', () => {
     );
 
     // 验证容器是否存在
-    const skeleton = screen.getByRole('presentation');
+    const skeleton = screen.getByRole('presentation', { hidden: true });
     expect(skeleton).toBeInTheDocument();
 
     // 验证 avatar 是否渲染
@@ -60,10 +59,10 @@ describe('Skeleton 组件', () => {
 describe('Loading 组件', () => {
   it('should render loading spinner with default props', () => {
     // 渲染默认的 Loading
-    render(<Loading show />);
+    render(<Loading />);
 
     // 验证是否渲染了 Loading 图标
-    const loadingIcon = screen.getByRole('img');
+    const loadingIcon = screen.getByRole('img', { hidden: true });
     expect(loadingIcon).toBeInTheDocument();
     expect(loadingIcon).toHaveClass('animate-spin');
   });
@@ -77,7 +76,6 @@ describe('Loading 组件', () => {
   });
 
   it('should apply custom styles and color', () => {
-    // 渲染带有自定义样式和颜色的 Loading
     render(
       <Loading
         show
@@ -88,7 +86,7 @@ describe('Loading 组件', () => {
     );
 
     // 验证样式是否正确应用
-    const loadingIcon = screen.getByRole('img');
+    const loadingIcon = screen.getByRole('img', { hidden: true });
     expect(loadingIcon).toHaveStyle('font-size: 24px');
     expect(loadingIcon).toHaveStyle('color: red');
     expect(loadingIcon).toHaveClass('custom-loading');

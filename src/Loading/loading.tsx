@@ -1,7 +1,7 @@
-import classNames from 'classnames'; // 导入 classNames
+import classNames from 'classnames';
 import React, { forwardRef, useCallback } from 'react';
-import Icon from '../Icon/icon'; // 导入 Icon 组件
-import './loading.scss'; // 引入基本样式
+import Icon from '../Icon/icon';
+import './loading.scss';
 
 export type SkeletonProps = {
   className?: string;
@@ -13,8 +13,8 @@ export type SkeletonProps = {
   size?: number;
 };
 
-const SkeletonCpns = (props: SkeletonProps, ref: any) => {
-  const {
+const SkeletonCpns = (
+  {
     className,
     loading = true,
     title,
@@ -22,10 +22,13 @@ const SkeletonCpns = (props: SkeletonProps, ref: any) => {
     row = 3,
     width = [],
     size = 40,
-  } = props;
-
+  }: SkeletonProps,
+  ref: React.Ref<HTMLDivElement>,
+) => {
   const firstClass = 'skeleton';
   const skeletonClassNames = classNames(className, firstClass);
+
+  // 根据宽度动态设置样式
   const lineHeight = useCallback(
     (i: number) => {
       if (width && width.length) {
@@ -48,13 +51,14 @@ const SkeletonCpns = (props: SkeletonProps, ref: any) => {
   return loading ? (
     <div
       className={skeletonClassNames}
+      role="presentation" // 添加 role 属性
       style={{ '--skeleton-container-avatar-size': `${size}px` } as any}
       ref={ref}
     >
       {avatar && <div className={`${firstClass}-avatar`} />}
       <div className={`${firstClass}-container`}>
         {title && <div className={`${firstClass}-container-title`} />}
-        {new Array(row).fill('').map((r, i) => (
+        {new Array(row).fill('').map((_, i) => (
           <div
             className={`${firstClass}-container-line`}
             style={lineHeight(i)}
@@ -63,21 +67,19 @@ const SkeletonCpns = (props: SkeletonProps, ref: any) => {
         ))}
       </div>
     </div>
-  ) : (
-    <></>
-  );
+  ) : null;
 };
 
-const Skeleton = forwardRef<unknown, SkeletonProps>(SkeletonCpns);
+// 转发ref
+const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(SkeletonCpns);
 export type LoadingProps = {
   show?: boolean;
   className?: string;
   style?: React.CSSProperties;
-  color?: string; // 允许传入颜色的string类型
+  color?: string;
 };
 
-const Loading = ({ show, className, style, color }: LoadingProps) => {
-  // 创建一个style对象，包含传入的颜色和其他样式
+const Loading = ({ show = true, className, style, color }: LoadingProps) => {
   const customStyle: React.CSSProperties = {
     ...style,
     color: color || style?.color || '#1890ff',
@@ -88,16 +90,13 @@ const Loading = ({ show, className, style, color }: LoadingProps) => {
       {show ? (
         <Icon
           type="loading"
+          role="img" // 添加 role 属性
           className={classNames('animate-spin', className)}
           style={customStyle}
         />
       ) : null}
     </>
   );
-};
-
-Loading.defaultProps = {
-  show: true,
 };
 
 export { Loading, Skeleton };
