@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import DragList from './dragList';
+import DragList from './draglist';
 
 describe('DragList Component', () => {
   // 定义拖拽子元素

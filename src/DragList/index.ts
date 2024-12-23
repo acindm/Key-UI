@@ -1,3 +1,3 @@
-import DragList from './dragList';
+import DragList from './draglist';
 
 export default DragList;
