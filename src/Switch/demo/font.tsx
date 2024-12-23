@@ -1,11 +1,11 @@
-import { Switch } from 'keyui';
+import { Space, Switch } from 'keyui';
 import React, { FC } from 'react';
 
 const App: FC = () => {
   return (
-    <div>
+    <Space>
       <Switch defaultChecked checkedChildren="开启" unCheckedChildren="关闭" />
-    </div>
+    </Space>
   );
 };
 

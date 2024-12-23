@@ -1,9 +1,9 @@
-import { Button } from 'keyui';
+import { Button, Space } from 'keyui';
 import React, { FC } from 'react';
 
 const App: FC = () => {
   return (
-    <div>
+    <Space>
       <Button type="default" circle>
         1
       </Button>
@@ -25,7 +25,7 @@ const App: FC = () => {
       <Button type="dashed" circle>
         7
       </Button>
-    </div>
+    </Space>
   );
 };
 

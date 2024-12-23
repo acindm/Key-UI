@@ -1,12 +1,12 @@
-import { Switch } from 'keyui';
+import { Space, Switch } from 'keyui';
 import React, { FC } from 'react';
 
 const App: FC = () => {
   return (
-    <div>
+    <Space>
       <Switch style={{ marginRight: '10px' }} defaultChecked small />
       <Switch defaultChecked />
-    </div>
+    </Space>
   );
 };
 

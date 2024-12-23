@@ -1,9 +1,9 @@
-import { Button } from 'keyui';
+import { Button, Space } from 'keyui';
 import React, { FC } from 'react';
 
 const App: FC = () => {
   return (
-    <div>
+    <Space>
       <Button size="small" type="primary">
         small
       </Button>
@@ -11,7 +11,7 @@ const App: FC = () => {
       <Button size="large" type="primary">
         large
       </Button>
-    </div>
+    </Space>
   );
 };
 

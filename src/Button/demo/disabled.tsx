@@ -1,9 +1,9 @@
-import { Button } from 'keyui';
+import { Button, Space } from 'keyui';
 import React, { FC } from 'react';
 
 const App: FC = () => {
   return (
-    <div>
+    <Space>
       <Button type="default" disabled>
         默认按钮
       </Button>
@@ -25,7 +25,7 @@ const App: FC = () => {
       <Button type="dashed" disabled>
         虚线按钮
       </Button>
-    </div>
+    </Space>
   );
 };
 
