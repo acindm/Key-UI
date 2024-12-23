@@ -1,5 +1,5 @@
 ---
-title: Switch 开关
+title: Loading 加载
 nav:
   title: 组件
   path: /src
@@ -7,35 +7,22 @@ group:
   title: 基础组件
 ---
 
-# Switch 开关
+# Loading 加载
 
-两种状态选择切换。
+网页处于加载过程时显示的动画。
 
 ## 使用场景
 
-用于两种状态的切换、某项功能的开关。会直接触发状态改变。
+加载过程中显示的动画。或在等待加载的位置提供一个占位图。
 
-- 下文提供了 4 种开关用法。
-- 禁用：功能处于开启/关闭状态，需要告知用户但不可以被用户更改。
+## 常见加载图标
 
-## 默认用法
+最基础的加载图标，直接在标签内设置大小与颜色（图标默认颜色为主题色）。
+<code src="./demo/circle.tsx"></code>
 
-最基本的使用方法。
-<code src="./demo/base.tsx"></code>
+## 骨架屏
 
-## 开关尺寸
-
-右侧为默认大小，通过`small` 切换到小开关
-<code src="./demo/size.tsx"></code>
-
-## 按钮字体
-
-`checkedChildren` 自定义选中内容，`unCheckedChildren` 自定义未选中内容。
-<code src="./demo/font.tsx"></code>
-
-## 禁用状态
-
-通过`disabled`开启禁用。
-<code src="./demo/disabled.tsx"></code>
+适用于整个网页的加载，相比传统加载图标，视觉效果和用户体验更好。
+<code src="./demo/skeleton.tsx"></code>
 
 ## API
