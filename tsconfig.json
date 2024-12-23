@@ -4,6 +4,7 @@
     "declaration": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "types": ["@testing-library/jest-dom"],
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
