@@ -36,7 +36,9 @@ describe('Tabs 组件', () => {
     // 验证激活的 Tab 和内容
     expect(container.querySelector('.active')).toHaveTextContent('Tab 3');
     expect(getByText('Content 3')).toBeInTheDocument();
-    expect(getByText('Content 1')).not.toBeVisible();
+    expect(
+      container.querySelector('.cobalt-tabs-content-item.hidden'),
+    ).toHaveTextContent('Content 1');
   });
 
   it('点击禁用的 Tab 不切换', () => {
@@ -50,7 +52,9 @@ describe('Tabs 组件', () => {
     // 验证激活的 Tab 未发生变化
     expect(container.querySelector('.active')).toHaveTextContent('Tab 1');
     expect(getByText('Content 1')).toBeInTheDocument();
-    expect(getByText('Content 2')).not.toBeVisible();
+    expect(
+      container.querySelector('.cobalt-tabs-content-item.hidden'),
+    ).toHaveTextContent('Content 2');
   });
 
   it('点击 Tab 时调用 onTabClick 回调', () => {
@@ -89,14 +93,17 @@ describe('Tabs 组件', () => {
   });
 
   it('隐藏未激活的 Tab 内容', () => {
-    const { getByText, queryByText } = render(
+    const { getByText, container } = render(
       <Tabs defaultActiveKey="1" items={tabsItems} />,
     );
 
-    // 验证只有激活的 Tab 内容可见
-    expect(getByText('Content 1')).toBeVisible();
-    expect(queryByText('Content 2')).not.toBeVisible();
-    expect(queryByText('Content 3')).not.toBeVisible();
+    expect(getByText('Content 1')).toBeInTheDocument();
+    const hiddenItems = container.querySelectorAll(
+      '.cobalt-tabs-content-item.hidden',
+    );
+    expect(hiddenItems).toHaveLength(2); // 应该有两个隐藏内容
+    expect(hiddenItems[0]).toHaveTextContent('Content 2');
+    expect(hiddenItems[1]).toHaveTextContent('Content 3');
   });
 
   it('支持不同的 Tab 类型（line/card）', () => {

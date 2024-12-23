@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1734716670621" clover="3.2.0">
-  <project timestamp="1734716670621" name="All files">
-    <metrics statements="39" coveredstatements="39" conditionals="57" coveredconditionals="55" methods="7" coveredmethods="7" elements="103" coveredelements="101" complexity="0" loc="39" ncloc="39" packages="2" files="3" classes="3"/>
+<coverage generated="1734945583895" clover="3.2.0">
+  <project timestamp="1734945583895" name="All files">
+    <metrics statements="55" coveredstatements="55" conditionals="65" coveredconditionals="63" methods="12" coveredmethods="12" elements="132" coveredelements="130" complexity="0" loc="55" ncloc="55" packages="3" files="4" classes="4"/>
     <package name="Button">
       <metrics statements="13" coveredstatements="13" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
       <file name="button.tsx" path="F:\Documents\GitHub\Key-UI\src\Button\button.tsx">
@@ -25,21 +25,21 @@
       </file>
     </package>
     <package name="Switch">
-      <metrics statements="26" coveredstatements="26" conditionals="47" coveredconditionals="45" methods="6" coveredmethods="6"/>
+      <metrics statements="26" coveredstatements="26" conditionals="49" coveredconditionals="47" methods="6" coveredmethods="6"/>
       <file name="switch.tsx" path="F:\Documents\GitHub\Key-UI\src\Switch\switch.tsx">
-        <metrics statements="26" coveredstatements="26" conditionals="47" coveredconditionals="45" methods="6" coveredmethods="6"/>
+        <metrics statements="26" coveredstatements="26" conditionals="49" coveredconditionals="47" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="41" count="12" type="stmt"/>
-        <line num="42" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="12" type="stmt"/>
-        <line num="46" count="12" type="stmt"/>
-        <line num="47" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="50" count="12" type="stmt"/>
-        <line num="51" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="54" count="12" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="42" count="12" type="stmt"/>
+        <line num="43" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="12" type="stmt"/>
+        <line num="47" count="12" type="stmt"/>
+        <line num="48" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="51" count="12" type="stmt"/>
+        <line num="52" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="55" count="12" type="stmt"/>
         <line num="56" count="12" type="stmt"/>
         <line num="59" count="12" type="stmt"/>
         <line num="60" count="4" type="cond" truecount="3" falsecount="0"/>
@@ -53,7 +53,29 @@
         <line num="88" count="1" type="stmt"/>
         <line num="90" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="94" count="12" type="stmt"/>
-        <line num="113" count="1" type="stmt"/>
+        <line num="115" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="Tabs">
+      <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="5"/>
+      <file name="tabs.tsx" path="F:\Documents\GitHub\Key-UI\src\Tabs\tabs.tsx">
+        <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="5"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="37" count="10" type="stmt"/>
+        <line num="38" count="10" type="stmt"/>
+        <line num="39" count="10" type="stmt"/>
+        <line num="41" count="10" type="stmt"/>
+        <line num="46" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="52" count="10" type="stmt"/>
+        <line num="56" count="30" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
+        <line num="73" count="30" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
       </file>
     </package>
   </project>
