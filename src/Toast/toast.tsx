@@ -4,7 +4,7 @@ import {
   ExclamationCircleTwoTone,
   InfoCircleTwoTone,
 } from '@ant-design/icons';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import React, { FC, ReactNode, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { CSSTransition } from 'react-transition-group';
@@ -40,18 +40,15 @@ const MessageEle: FC<MessageProps> = ({
   duration = 3,
 }) => {
   const [showMessage, setShowMessage] = useState(false);
-  const classes = classNames({
-    'cobalt-message-item': true,
-  });
 
   useEffect(() => {
-    setShowMessage(open); // 控制消息的显示状态
+    setShowMessage(open);
     const timerId = setTimeout(() => {
-      setShowMessage(false); //关闭消息
+      setShowMessage(false);
       setTimeout(() => {
         const container = document.querySelector('.cobalt-message-container');
         container?.removeChild(document.querySelector('.cobalt-message')!);
-      }, 500); // 动画完成后移除DOM
+      }, 500);
     }, duration * 1000);
 
     return () => {
@@ -65,9 +62,12 @@ const MessageEle: FC<MessageProps> = ({
       timeout={300}
       classNames="alert"
       unmountOnExit
+      onExited={() => {
+        console.log('Animation finished');
+      }}
     >
-      <div className="cobalt-message-position">
-        <div className={classes}>
+      <div className="cobalt-message-position" role="alert">
+        <div className="cobalt-message-item">
           {iconMap.get(type)}
           <span>{content}</span>
         </div>
