@@ -62,9 +62,7 @@ const MessageEle: FC<MessageProps> = ({
       timeout={300}
       classNames="alert"
       unmountOnExit
-      onExited={() => {
-        console.log('Animation finished');
-      }}
+      onExited={() => {}}
     >
       <div className="cobalt-message-position" role="alert">
         <div className="cobalt-message-item">
