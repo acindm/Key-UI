@@ -1,6 +1,7 @@
 import type { TabItemType, TabsProps } from './Tabs';
 
 export { default as Button } from './Button';
+export { default as DragList } from './DragList';
 export { Loading, Skeleton } from './Loading';
 export { default as Space } from './Space';
 export { default as Switch } from './Switch';
