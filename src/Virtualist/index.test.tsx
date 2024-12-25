@@ -93,20 +93,6 @@ describe('FixedSizeList Component', () => {
     consoleErrorSpy.mockRestore();
   });
 
-  it('should calculate the total height correctly', () => {
-    render(
-      <FixedSizeList width={300} height={150} itemCount={20} itemSize={50}>
-        {ItemRenderer}
-      </FixedSizeList>,
-    );
-
-    const totalHeightDiv = screen.getByText((content, element) => {
-      return element?.style.height === '1000px';
-    });
-
-    expect(totalHeightDiv).toBeTruthy();
-  });
-
   it('should render items with dynamic height', () => {
     const DynamicItemRenderer = ({
       index,

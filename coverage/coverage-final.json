@@ -3316,5 +3316,225 @@
       "6": [2],
       "7": [2]
     }
+  },
+  "F:\\Documents\\GitHub\\Key-UI\\src\\Virtualist\\fixedSize.tsx": {
+    "path": "F:\\Documents\\GitHub\\Key-UI\\src\\Virtualist\\fixedSize.tsx",
+    "statementMap": {
+      "0": {
+        "start": { "line": 1, "column": 0 },
+        "end": { "line": 1, "column": 55 }
+      },
+      "1": {
+        "start": { "line": 15, "column": 52 },
+        "end": { "line": 81, "column": 1 }
+      },
+      "2": {
+        "start": { "line": 16, "column": 59 },
+        "end": { "line": 16, "column": 64 }
+      },
+      "3": {
+        "start": { "line": 19, "column": 38 },
+        "end": { "line": 19, "column": 49 }
+      },
+      "4": {
+        "start": { "line": 20, "column": 40 },
+        "end": { "line": 20, "column": 51 }
+      },
+      "5": {
+        "start": { "line": 22, "column": 2 },
+        "end": { "line": 25, "column": 3 }
+      },
+      "6": {
+        "start": { "line": 23, "column": 4 },
+        "end": { "line": 23, "column": 30 }
+      },
+      "7": {
+        "start": { "line": 24, "column": 4 },
+        "end": { "line": 24, "column": 16 }
+      },
+      "8": {
+        "start": { "line": 27, "column": 23 },
+        "end": { "line": 27, "column": 51 }
+      },
+      "9": {
+        "start": { "line": 28, "column": 19 },
+        "end": { "line": 28, "column": 44 }
+      },
+      "10": {
+        "start": { "line": 29, "column": 23 },
+        "end": { "line": 29, "column": 43 }
+      },
+      "11": {
+        "start": { "line": 31, "column": 23 },
+        "end": { "line": 34, "column": 4 }
+      },
+      "12": {
+        "start": { "line": 31, "column": 30 },
+        "end": { "line": 34, "column": 4 }
+      },
+      "13": {
+        "start": { "line": 36, "column": 19 },
+        "end": { "line": 40, "column": 3 }
+      },
+      "14": {
+        "start": { "line": 37, "column": 22 },
+        "end": { "line": 37, "column": 44 }
+      },
+      "15": {
+        "start": { "line": 38, "column": 4 },
+        "end": { "line": 38, "column": 52 }
+      },
+      "16": {
+        "start": { "line": 39, "column": 4 },
+        "end": { "line": 39, "column": 55 }
+      },
+      "17": {
+        "start": { "line": 42, "column": 17 },
+        "end": { "line": 54, "column": 3 }
+      },
+      "18": {
+        "start": { "line": 43, "column": 18 },
+        "end": { "line": 43, "column": 20 }
+      },
+      "19": {
+        "start": { "line": 44, "column": 4 },
+        "end": { "line": 52, "column": 5 }
+      },
+      "20": {
+        "start": { "line": 44, "column": 21 },
+        "end": { "line": 44, "column": 31 }
+      },
+      "21": {
+        "start": { "line": 45, "column": 6 },
+        "end": { "line": 51, "column": 8 }
+      },
+      "22": {
+        "start": { "line": 53, "column": 4 },
+        "end": { "line": 53, "column": 17 }
+      },
+      "23": {
+        "start": { "line": 56, "column": 2 },
+        "end": { "line": 80, "column": 4 }
+      },
+      "24": {
+        "start": { "line": 83, "column": 0 },
+        "end": { "line": 83, "column": 29 }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_6)",
+        "decl": {
+          "start": { "line": 15, "column": 52 },
+          "end": { "line": 15, "column": 53 }
+        },
+        "loc": {
+          "start": { "line": 15, "column": 62 },
+          "end": { "line": 81, "column": 1 }
+        }
+      },
+      "1": {
+        "name": "(anonymous_7)",
+        "decl": {
+          "start": { "line": 31, "column": 23 },
+          "end": { "line": 31, "column": 26 }
+        },
+        "loc": {
+          "start": { "line": 31, "column": 30 },
+          "end": { "line": 34, "column": 4 }
+        }
+      },
+      "2": {
+        "name": "(anonymous_8)",
+        "decl": {
+          "start": { "line": 36, "column": 19 },
+          "end": { "line": 36, "column": 20 }
+        },
+        "loc": {
+          "start": { "line": 36, "column": 34 },
+          "end": { "line": 40, "column": 3 }
+        }
+      },
+      "3": {
+        "name": "(anonymous_9)",
+        "decl": {
+          "start": { "line": 42, "column": 17 },
+          "end": { "line": 42, "column": 20 }
+        },
+        "loc": {
+          "start": { "line": 42, "column": 22 },
+          "end": { "line": 54, "column": 3 }
+        }
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": { "line": 22, "column": 2 },
+          "end": { "line": 25, "column": 3 }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": { "line": 22, "column": 2 },
+            "end": { "line": 25, "column": 3 }
+          }
+        ]
+      },
+      "1": {
+        "loc": {
+          "start": { "line": 22, "column": 6 },
+          "end": { "line": 22, "column": 74 }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 22, "column": 6 },
+            "end": { "line": 22, "column": 13 }
+          },
+          {
+            "start": { "line": 22, "column": 17 },
+            "end": { "line": 22, "column": 27 }
+          },
+          {
+            "start": { "line": 22, "column": 31 },
+            "end": { "line": 22, "column": 40 }
+          },
+          {
+            "start": { "line": 22, "column": 44 },
+            "end": { "line": 22, "column": 74 }
+          }
+        ]
+      }
+    },
+    "s": {
+      "0": 1,
+      "1": 1,
+      "2": 6,
+      "3": 6,
+      "4": 6,
+      "5": 6,
+      "6": 1,
+      "7": 1,
+      "8": 5,
+      "9": 5,
+      "10": 5,
+      "11": 5,
+      "12": 15,
+      "13": 5,
+      "14": 1,
+      "15": 1,
+      "16": 1,
+      "17": 5,
+      "18": 5,
+      "19": 5,
+      "20": 5,
+      "21": 15,
+      "22": 5,
+      "23": 5,
+      "24": 1
+    },
+    "f": { "0": 6, "1": 15, "2": 1, "3": 5 },
+    "b": { "0": [1], "1": [6, 5, 5, 5] }
   }
 }
