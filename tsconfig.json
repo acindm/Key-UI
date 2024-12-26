@@ -1,3 +1,22 @@
+// {
+//   "compilerOptions": {
+//     "strict": true,
+//     "declaration": true,
+//     "emitDeclarationOnly": false,
+//     "skipLibCheck": true,
+//     "esModuleInterop": true,
+//     "types": ["@testing-library/jest-dom"],
+//     "jsx": "react",
+//     "baseUrl": "./",
+//     "paths": {
+//       "@@/*": [".dumi/tmp/*"],
+//       "keyui": ["src"],
+//       "keyui/*": ["src/*", "*"]
+//     }
+//   },
+//   "include": [".dumirc.ts", "src/**/*"]
+// }
+
 {
   "compilerOptions": {
     "strict": true,
@@ -5,14 +24,18 @@
     "emitDeclarationOnly": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "types": ["@testing-library/jest-dom"],
+    "allowSyntheticDefaultImports": true, // 允许默认导入语法
+    "types": ["@testing-library/jest-dom", "dumi"], // 添加类型
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "keyui": ["src"],
       "keyui/*": ["src/*", "*"]
-    }
+    },
+    "moduleResolution": "node", // 更改为 node 以避免扩展名报错
+    "module": "esnext",
+    "lib": ["esnext", "dom"] // 显式指定 TypeScript 的库
   },
-  "include": [".dumirc.ts", "src/**/*"]
+  "include": [".dumirc.ts", "src/**/*", "node_modules/dumi/**/*"]
 }
