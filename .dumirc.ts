@@ -6,4 +6,8 @@ export default defineConfig({
     name: 'Key-UI',
   },
   favicons: ['/favicon.png'],
+  apiParser: {},
+  resolve: {
+    entryFile: './src/index.ts',
+  },
 });

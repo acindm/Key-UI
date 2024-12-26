@@ -10,15 +10,15 @@ import ReactDOM from 'react-dom/client';
 import { CSSTransition } from 'react-transition-group';
 import './toast.scss';
 
-export type MessageType = 'success' | 'error' | 'warning' | 'info';
-export type MessageProps = {
-  type?: MessageType; // 消息类型
+export type ToastType = 'success' | 'error' | 'warning' | 'info';
+export type ToastProps = {
+  type?: ToastType; // 消息类型
   open: boolean; // 是否显示
   content?: string; // 消息内容
   duration?: number; // 显示时长(自动关闭的持续时间)
 };
 
-const iconMap = new Map<MessageType, ReactNode>([
+const iconMap = new Map<ToastType, ReactNode>([
   ['info', <InfoCircleTwoTone key="info" />],
   ['success', <CheckCircleTwoTone key="success" twoToneColor="#52c41a" />],
   ['error', <CloseCircleTwoTone key="error" twoToneColor="#ec5b56" />],
@@ -28,26 +28,26 @@ const iconMap = new Map<MessageType, ReactNode>([
   ],
 ]);
 
-// 创建 message 容器元素，用于添加 message 元素
-const messageContainer = document.createElement('div');
-messageContainer.className = 'cobalt-message-container';
-document.body.appendChild(messageContainer);
+// 创建 toast 容器元素，用于添加 toast 元素
+const toastContainer = document.createElement('div');
+toastContainer.className = 'cobalt-toast-container';
+document.body.appendChild(toastContainer);
 
-const MessageEle: FC<MessageProps> = ({
+const ToastEle: FC<ToastProps> = ({
   type = 'info',
   open,
   content,
   duration = 3,
 }) => {
-  const [showMessage, setShowMessage] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    setShowMessage(open);
+    setShowToast(open);
     const timerId = setTimeout(() => {
-      setShowMessage(false);
+      setShowToast(false);
       setTimeout(() => {
-        const container = document.querySelector('.cobalt-message-container');
-        container?.removeChild(document.querySelector('.cobalt-message')!);
+        const container = document.querySelector('.cobalt-toast-container');
+        container?.removeChild(document.querySelector('.cobalt-toast')!);
       }, 500);
     }, duration * 1000);
 
@@ -58,14 +58,14 @@ const MessageEle: FC<MessageProps> = ({
 
   return (
     <CSSTransition
-      in={showMessage}
+      in={showToast}
       timeout={300}
       classNames="alert"
       unmountOnExit
       onExited={() => {}}
     >
-      <div className="cobalt-message-position" role="alert">
-        <div className="cobalt-message-item">
+      <div className="cobalt-toast-position" role="alert">
+        <div className="cobalt-toast-item">
           {iconMap.get(type)}
           <span>{content}</span>
         </div>
@@ -74,17 +74,17 @@ const MessageEle: FC<MessageProps> = ({
   );
 };
 
-const message = {
+const toast = {
   Ele: null,
   info: (content: string, duration?: number) => {
     const Ele = document.createElement('div');
-    Ele.className = 'cobalt-message';
+    Ele.className = 'cobalt-toast';
     // 渲染DOM
     ReactDOM.createRoot(Ele as HTMLElement).render(
-      <MessageEle open content={content} duration={duration} type="info" />,
+      <ToastEle open content={content} duration={duration} type="info" />,
     );
     // 置入到指定节点下
-    const container = document.querySelector('.cobalt-message-container');
+    const container = document.querySelector('.cobalt-toast-container');
     if (container) {
       container.appendChild(Ele);
     }
@@ -92,13 +92,13 @@ const message = {
 
   success: (content: string, duration?: number) => {
     const Ele = document.createElement('div');
-    Ele.className = 'cobalt-message';
+    Ele.className = 'cobalt-toast';
     // 渲染DOM
     ReactDOM.createRoot(Ele as HTMLElement).render(
-      <MessageEle open content={content} duration={duration} type="success" />,
+      <ToastEle open content={content} duration={duration} type="success" />,
     );
     // 置入到指定节点下
-    const container = document.querySelector('.cobalt-message-container');
+    const container = document.querySelector('.cobalt-toast-container');
     if (container) {
       container.appendChild(Ele);
     }
@@ -106,13 +106,13 @@ const message = {
 
   warning: (content: string, duration?: number) => {
     const Ele = document.createElement('div');
-    Ele.className = 'cobalt-message';
+    Ele.className = 'cobalt-toast';
     // 渲染DOM
     ReactDOM.createRoot(Ele as HTMLElement).render(
-      <MessageEle open content={content} duration={duration} type="warning" />,
+      <ToastEle open content={content} duration={duration} type="warning" />,
     );
     // 置入到指定节点下
-    const container = document.querySelector('.cobalt-message-container');
+    const container = document.querySelector('.cobalt-toast-container');
     if (container) {
       container.appendChild(Ele);
     }
@@ -120,17 +120,17 @@ const message = {
 
   error: (content: string, duration?: number) => {
     const Ele = document.createElement('div');
-    Ele.className = 'cobalt-message';
+    Ele.className = 'cobalt-toast';
     // 渲染DOM
     ReactDOM.createRoot(Ele as HTMLElement).render(
-      <MessageEle open content={content} duration={duration} type="error" />,
+      <ToastEle open content={content} duration={duration} type="error" />,
     );
     // 置入到指定节点下
-    const container = document.querySelector('.cobalt-message-container');
+    const container = document.querySelector('.cobalt-toast-container');
     if (container) {
       container.appendChild(Ele);
     }
   },
 };
 
-export default message;
+export default toast;

@@ -1,4 +1,4 @@
-import message, { MessageProps } from './toast';
+import message, { ToastProps } from './toast';
 
-export type { MessageProps };
+export type { ToastProps };
 export default message;

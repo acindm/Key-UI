@@ -1,6 +1,6 @@
 @import '/style/common.scss';
 
-.cobalt-message-container {
+.cobalt-toast-container {
   position: fixed;
   z-index: 99;
   top: 5%;
@@ -11,18 +11,18 @@
   row-gap: 20px;
 }
 
-.cobalt-message {
+.cobalt-toast {
   transition: all 0.3s;
 }
 
-.cobalt-message-position {
+.cobalt-toast-position {
   width: fit-content;
   height: auto;
   overflow: hidden;
   box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
   margin: 0 auto;
 
-  .cobalt-message-item {
+  .cobalt-toast-item {
     padding: 8px 16px;
     border-radius: 4px;
     background: #fff;

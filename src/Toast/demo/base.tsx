@@ -1,20 +1,20 @@
-import { Button, Space, message } from 'keyui';
+import { Button, Space, toast } from 'keyui';
 import React, { FC } from 'react';
 
 const App: FC = () => {
   const info = () => {
-    message.info('This is a normal message', 3);
+    toast.info('This is a normal toast', 3);
   };
   const success = () => {
-    message.success('This is a success message', 3);
+    toast.success('This is a success toast', 3);
   };
 
   const error = () => {
-    message.error('This is an error message', 3);
+    toast.error('This is an error toast', 3);
   };
 
   const warning = () => {
-    message.warning('This is a warning message', 3);
+    toast.warning('This is a warning toast', 3);
   };
   return (
     <Space>
