@@ -20,3 +20,10 @@ group:
 <code src="./demo/base.tsx"></code>
 
 ## API
+
+| 属性名     | 描述                                                       | 类型                                          | 默认值 |
+| ---------- | ---------------------------------------------------------- | --------------------------------------------- | ------ |
+| `type`     | 消息类型，可选值：`info` / `success` / `error` / `warning` | `'info' \| 'success' \| 'error' \| 'warning'` | `info` |
+| `open`     | 是否显示 Toast                                             | `boolean`                                     | -      |
+| `content`  | 消息内容                                                   | `string`                                      | -      |
+| `duration` | 显示时长（单位：秒），到达时间后自动关闭                   | `number`                                      | `3`    |

@@ -37,13 +37,15 @@ group:
 
 ## API
 
-| Name              | Description  | Type            | Default |
-| ----------------- | ------------ | --------------- | ------- |
-| className         | 自定义类名   | `string`        | `--`    |
-| style             | 自定义样式   | `CSSProperties` | `--`    |
-| disabled          | 禁用         | `boolean`       | `false` |
-| small             | 小型按钮     | `boolean`       | `false` |
-| defaultChecked    | 默认选中     | `boolean`       | `false` |
-| checkedChildren   | 选中 文字    | `ReactNode`     | `--`    |
-| unCheckedChildren | 未选中 文字  | `ReactNode`     | `--`    |
-| handleChange      | 改变回调函数 | `Function`      | `--`    |
+| 属性名              | 描述                                                                    | 类型                         | 默认值  |
+| ------------------- | ----------------------------------------------------------------------- | ---------------------------- | ------- |
+| `className`         | 自定义容器额外的类名                                                    | `string`                     | -       |
+| `children`          | 自定义子元素（通常无需手动传入，内部也不会用到）                        | `ReactNode`                  | -       |
+| `style`             | 行内样式                                                                | `React.CSSProperties`        | -       |
+| `disabled`          | 是否禁用当前开关                                                        | `boolean`                    | -       |
+| `small`             | 是否为小尺寸开关                                                        | `boolean`                    | -       |
+| `defaultChecked`    | 开关的默认选中状态                                                      | `boolean`                    | `false` |
+| `checkedChildren`   | 选中状态下显示的内容                                                    | `ReactNode`                  | -       |
+| `unCheckedChildren` | 未选中状态下显示的内容                                                  | `ReactNode`                  | -       |
+| `loading`           | 是否为加载状态，加载时不可点击                                          | `boolean`                    | -       |
+| `onChange`          | 状态变化回调，参数为当前开关新状态（`true` 表示选中，`false` 表示未选） | `(checked: boolean) => void` | -       |

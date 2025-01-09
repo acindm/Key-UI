@@ -38,4 +38,14 @@ size `large/small` 分别对应大/小尺寸。默认尺寸为`middle`
 
 ## API
 
-<API id="Button"></API>
+| 属性名      | 描述                                                           | 类型                                                                              | 默认值    |
+| ----------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------- |
+| `style`     | 自定义行内样式                                                 | `React.CSSProperties`                                                             | -         |
+| `className` | 额外的样式类名                                                 | `string`                                                                          | -         |
+| `disabled`  | 是否禁用按钮；若类型为 `link` 时，会给链接添加 `disabled` 样式 | `boolean`                                                                         | `false`   |
+| `size`      | 按钮尺寸                                                       | `'small' \| 'middle' \| 'large'`                                                  | `middle`  |
+| `type`      | 按钮类型                                                       | `'primary' \| 'default' \| 'danger' \| 'link' \| 'warning' \| 'info' \| 'dashed'` | `default` |
+| `children`  | 按钮内容（可传入文本、图标或任意 `ReactNode`）                 | `ReactNode`                                                                       | -         |
+| `href`      | 当 `type='link'` 时，按钮会被渲染为 `<a>`，此属性为链接地址    | `string`                                                                          | -         |
+| `circle`    | 是否为圆形按钮；仅当 `type !== 'link'` 时生效                  | `boolean`                                                                         | -         |
+| `onClick`   | 点击事件回调                                                   | `MouseEventHandler<HTMLElement>`                                                  | -         |
