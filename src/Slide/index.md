@@ -1,5 +1,5 @@
 ---
-title: Slide(半成品，完善中)
+title: Slide
 nav:
   title: 组件
   path: /src

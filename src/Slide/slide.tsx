@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, {
   Children,
+  CSSProperties,
   useCallback,
   useEffect,
   useRef,
@@ -12,7 +13,7 @@ export interface SlideProps {
   duration?: number;
   dots?: boolean;
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   beforeChange?: (from: number, to: number) => void;
   afterChange?: (current: number, from: number) => void;
   children: React.ReactNode;
@@ -28,6 +29,7 @@ const Slide: React.FC<SlideProps> = ({
   children,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+
   // 首尾各自克隆一个节点
   const originalLength = Children.count(children);
   const totalLength = originalLength + 2; // 克隆首尾后总节点数
@@ -85,24 +87,34 @@ const Slide: React.FC<SlideProps> = ({
    */
   const handleTransitionEnd = useCallback(() => {
     isTransitioning.current = false;
-    // afterChange 回调
     if (afterChange) {
       afterChange(current, prevIndex.current);
     }
 
     // 当 current 到头或到尾的时候，关闭动画，瞬间拉回到真实位置
     if (current === totalLength - 1) {
-      // 说明此时在克隆的最后一项，需要切换回真正的第一项
       setHasTransition(false);
       setCurrent(1);
-    } else if (current === 0) {
-      // 说明此时在克隆的第一项，需要切换回真正的最后一项
+
+      requestAnimationFrame(() => {
+        setHasTransition(true);
+        autoPlay();
+      });
+      return;
+    }
+
+    if (current === 0) {
       setHasTransition(false);
       setCurrent(originalLength);
-    } else {
-      // 正常情况自动播放
-      autoPlay();
+
+      requestAnimationFrame(() => {
+        setHasTransition(true);
+        autoPlay();
+      });
+      return;
     }
+
+    autoPlay();
   }, [current, totalLength, originalLength, afterChange, autoPlay]);
 
   /**
@@ -111,23 +123,8 @@ const Slide: React.FC<SlideProps> = ({
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-    // 使用 transform: translateX(-current * 100%)
-    // 因为一开始我们在容器头部克隆了最后一项，所以让“真正第一张”对应 current=1。
-    requestAnimationFrame(() => {
-      container.style.transform = `translateX(-${current * 100}%)`;
-      // 如果需要动画则加上 transition，否则移除
-      container.style.transition = hasTransition
-        ? 'transform 0.5s ease'
-        : 'none';
-    });
-
-    // 如果是通过 handleTransitionEnd 重置了 hasTransition = false，需要在下一帧再开启
-    if (!hasTransition) {
-      // 等当前帧执行后再重开动画，不会让用户看到动画抖动
-      requestAnimationFrame(() => {
-        setHasTransition(true);
-      });
-    }
+    container.style.transform = `translateX(-${current * 100}%)`;
+    container.style.transition = hasTransition ? 'transform 0.5s ease' : 'none';
   }, [current, hasTransition]);
 
   /**
@@ -137,22 +134,18 @@ const Slide: React.FC<SlideProps> = ({
     const container = containerRef.current;
     if (!container) return;
 
-    // 拿到所有子节点
     const slides = Array.from(container.children) as HTMLElement[];
     // 若已克隆过，避免重复克隆
     if (slides.length > 0 && slides.length !== originalLength) {
       return;
     }
 
-    // 克隆第一张和最后一张
     const firstNode = slides[0].cloneNode(true);
     const lastNode = slides[slides.length - 1].cloneNode(true);
 
-    // 在最前面插入最后一张的克隆、在最后面插入第一张的克隆
     container.insertBefore(lastNode, slides[0]);
     container.appendChild(firstNode);
 
-    // 刚开始我们想展示“真正的第一张”，所以把容器拉到 -100% 位置（对应 current=1）
     container.style.transform = 'translateX(-100%)';
 
     // 启动自动播放
@@ -160,7 +153,9 @@ const Slide: React.FC<SlideProps> = ({
 
     // 清理定时器
     return () => {
-      if (timerId) clearTimeout(timerId);
+      if (timerId) {
+        clearTimeout(timerId);
+      }
     };
   }, [originalLength, autoPlay, timerId]);
 
@@ -181,7 +176,26 @@ const Slide: React.FC<SlideProps> = ({
     autoPlay();
   };
 
-  const containerClassNames = classNames('Slide-container');
+  /**
+   * 指示点（可选）
+   */
+  const renderDots = dots && (
+    <div className="Slide-dots-wrapper">
+      {React.Children.map(children, (_, index) => {
+        // dots 的 index 从 1 开始
+        const dotIndex = index + 1;
+        return (
+          <span
+            key={dotIndex}
+            className={classNames('Slide-dot', {
+              active: current === dotIndex,
+            })}
+            onClick={() => goTo(dotIndex)}
+          />
+        );
+      })}
+    </div>
+  );
 
   return (
     <div
@@ -191,29 +205,14 @@ const Slide: React.FC<SlideProps> = ({
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className={containerClassNames}
+        className="Slide-container"
         style={{ display: 'flex' }}
         ref={containerRef}
         onTransitionEnd={handleTransitionEnd}
       >
         {children}
       </div>
-      {dots && (
-        <div className="Slide-dots-wrapper">
-          {React.Children.map(children, (_, index) => {
-            const dotIndex = index + 1;
-            return (
-              <span
-                key={index}
-                className={classNames('Slide-dot', {
-                  active: current === dotIndex,
-                })}
-                onClick={() => goTo(dotIndex)}
-              />
-            );
-          })}
-        </div>
-      )}
+      {renderDots}
     </div>
   );
 };
