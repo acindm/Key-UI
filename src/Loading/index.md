@@ -4,7 +4,7 @@ nav:
   title: 组件
   path: /src
 group:
-  title: 基础组件
+  title: 反馈型组件
 ---
 
 # Loading 加载
