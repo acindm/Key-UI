@@ -13,6 +13,8 @@ group:
 
 ## 默认用法
 
+<code src="./demo/base.tsx"></code>
+
 ## API
 
 <API id="Button"></API>

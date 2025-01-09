@@ -2,17 +2,16 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-  
+
     > .Slide-container {
       display: flex;
       width: 100%;
       transform: translateX(-100%);
-  
       &.has-transition-class-name {
         transition: transform 0.5s cubic-bezier(.645, .045, .355, 1);
       }
     }
-  
+
     > .Slide-dots-wrapper {
       position: absolute;
       bottom: 15px;
@@ -21,7 +20,7 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
-  
+
       > .Slide-dot {
         display: block;
         background-color: #fff;
@@ -32,11 +31,11 @@
         margin: 0 2px;
         transition: all 0.3s cubic-bezier(.645, .045, .355, 1);
         cursor: pointer;
-  
+
         &:hover {
           opacity: 0.6;
         }
-  
+
         &.active {
           width: 24px;
           opacity: 0.9;
@@ -44,4 +43,3 @@
       }
     }
   }
-  
