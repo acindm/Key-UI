@@ -15,6 +15,7 @@
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
     "doctor": "father doctor",
+    "gen:component": "node scripts/generateComponent.js",
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
