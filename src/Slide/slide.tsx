@@ -1,5 +1,11 @@
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+  Children,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import './slide.scss';
 
 export interface SlideProps {
@@ -13,7 +19,7 @@ export interface SlideProps {
 }
 
 const Slide: React.FC<SlideProps> = ({
-  duration = 3,
+  duration = 2,
   dots = true,
   className,
   style,
@@ -22,120 +28,160 @@ const Slide: React.FC<SlideProps> = ({
   children,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [current, setCurrent] = useState(1);
-  const [hasTransitionClassName, setHasTransitionClassName] = useState(true);
-  const [timeoutId, setTimeoutId] = useState<any>(null);
+  // 首尾各自克隆一个节点
+  const originalLength = Children.count(children);
+  const totalLength = originalLength + 2; // 克隆首尾后总节点数
 
-  const length = React.Children.count(children);
+  const [current, setCurrent] = useState(1);
+  const [hasTransition, setHasTransition] = useState(true);
+  const [timerId, setTimerId] = useState<number | undefined>(undefined);
+
   const isTransitioning = useRef(false);
   const prevIndex = useRef(1);
 
   // 跳转到指定项
   const goTo = useCallback(
     (n: number) => {
-      if (n > length || n < 1 || n === current || isTransitioning.current)
-        return;
-      prevIndex.current = current;
-      setCurrent(n); // 更新当前项
+      if (isTransitioning.current) return;
+      if (n === current) return;
+
+      // 调用 beforeChange
       if (beforeChange) {
-        beforeChange(prevIndex.current, n); // 执行前置回调
+        beforeChange(current, n);
       }
+
+      isTransitioning.current = true;
+      prevIndex.current = current;
+      setCurrent(n);
     },
-    [current, length, beforeChange],
+    [beforeChange, current],
   );
 
-  // 切换到下一项
   const next = useCallback(() => {
-    if (current < length) {
-      goTo(current + 1);
-    } else {
-      goTo(1); // 循环回到第一张
-    }
-  }, [current, length, goTo]);
+    goTo(current + 1);
+  }, [current, goTo]);
 
-  // 自动播放
+  /**
+   * 自动轮播
+   */
   const autoPlay = useCallback(() => {
-    if (duration > 0) {
-      const timeout = setTimeout(() => {
-        next(); // 调用切换下一张
-      }, duration * 1000);
-      setTimeoutId(timeout); // 保存 timeoutId
-    }
-  }, [duration, next]);
+    // duration <= 0 时不自动播放
+    if (duration <= 0) return;
 
-  // 处理过渡结束事件
+    // 如果已有定时器，先清掉
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+
+    // 设置新的定时器
+    const id = window.setTimeout(() => {
+      next();
+    }, duration * 1000);
+    setTimerId(id);
+  }, [duration, next, timerId]);
+
+  /**
+   * 过渡结束，处理首尾跳转
+   */
   const handleTransitionEnd = useCallback(() => {
     isTransitioning.current = false;
+    // afterChange 回调
     if (afterChange) {
-      afterChange(current, prevIndex.current); // 执行后置回调
+      afterChange(current, prevIndex.current);
     }
-    // 处理滚动到第一项或最后一项的特殊逻辑
-    if (current === length && prevIndex.current === 1) {
-      setHasTransitionClassName(false);
-      setTimeout(() => {
-        if (containerRef.current) {
-          containerRef.current.style.transform = `translateX(0%)`;
-        }
-      }, 0);
-    } else if (current === 1 && prevIndex.current === length) {
-      setHasTransitionClassName(false);
-      setTimeout(() => {
-        if (containerRef.current) {
-          containerRef.current.style.transform = `translateX(-100%)`;
-        }
-      }, 0);
-    }
-    // 启动或恢复自动播放
-    autoPlay();
-  }, [current, afterChange, length]);
 
-  // 初始化时克隆节点
+    // 当 current 到头或到尾的时候，关闭动画，瞬间拉回到真实位置
+    if (current === totalLength - 1) {
+      // 说明此时在克隆的最后一项，需要切换回真正的第一项
+      setHasTransition(false);
+      setCurrent(1);
+    } else if (current === 0) {
+      // 说明此时在克隆的第一项，需要切换回真正的最后一项
+      setHasTransition(false);
+      setCurrent(originalLength);
+    } else {
+      // 正常情况自动播放
+      autoPlay();
+    }
+  }, [current, totalLength, originalLength, afterChange, autoPlay]);
+
+  /**
+   * 每次 current 发生变化时，根据 current 值更新容器的 transform，实现轮播效果
+   */
   useEffect(() => {
-    const nodeList = Array.from(containerRef.current?.childNodes || []);
-    nodeList.forEach((node) => {
-      if (node.nodeType === 1) {
-        const eleNode = node as HTMLElement;
-        eleNode.style.flexShrink = '0';
-      }
+    const container = containerRef.current;
+    if (!container) return;
+    // 使用 transform: translateX(-current * 100%)
+    // 因为一开始我们在容器头部克隆了最后一项，所以让“真正第一张”对应 current=1。
+    requestAnimationFrame(() => {
+      container.style.transform = `translateX(-${current * 100}%)`;
+      // 如果需要动画则加上 transition，否则移除
+      container.style.transition = hasTransition
+        ? 'transform 0.5s ease'
+        : 'none';
     });
-    // 克隆第一项和最后一项
-    if (containerRef.current) {
-      const firstNode = nodeList[0]?.cloneNode(true);
-      const lastNode = nodeList[nodeList.length - 1]?.cloneNode(true);
-      containerRef.current.append(lastNode);
-      containerRef.current.prepend(firstNode);
-    }
-  }, []);
 
-  // 组件挂载后启动自动播放
+    // 如果是通过 handleTransitionEnd 重置了 hasTransition = false，需要在下一帧再开启
+    if (!hasTransition) {
+      // 等当前帧执行后再重开动画，不会让用户看到动画抖动
+      requestAnimationFrame(() => {
+        setHasTransition(true);
+      });
+    }
+  }, [current, hasTransition]);
+
+  /**
+   * 初始化：给容器首尾克隆节点 + 启动自动播放
+   */
   useEffect(() => {
-    if (duration > 0) {
-      autoPlay(); // 启动自动播放
+    const container = containerRef.current;
+    if (!container) return;
+
+    // 拿到所有子节点
+    const slides = Array.from(container.children) as HTMLElement[];
+    // 若已克隆过，避免重复克隆
+    if (slides.length > 0 && slides.length !== originalLength) {
+      return;
     }
+
+    // 克隆第一张和最后一张
+    const firstNode = slides[0].cloneNode(true);
+    const lastNode = slides[slides.length - 1].cloneNode(true);
+
+    // 在最前面插入最后一张的克隆、在最后面插入第一张的克隆
+    container.insertBefore(lastNode, slides[0]);
+    container.appendChild(firstNode);
+
+    // 刚开始我们想展示“真正的第一张”，所以把容器拉到 -100% 位置（对应 current=1）
+    container.style.transform = 'translateX(-100%)';
+
+    // 启动自动播放
+    autoPlay();
+
+    // 清理定时器
     return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId); // 清除定时器
-      }
+      if (timerId) clearTimeout(timerId);
     };
-  }, [duration, autoPlay, timeoutId]);
+  }, [originalLength, autoPlay, timerId]);
 
-  // 鼠标悬浮时暂停自动播放
+  /**
+   * 鼠标进入暂停自动播放
+   */
   const handleMouseEnter = () => {
-    if (timeoutId) {
-      clearTimeout(timeoutId); // 暂停自动播放
+    if (timerId) {
+      clearTimeout(timerId);
+      setTimerId(undefined);
     }
   };
 
-  // 鼠标离开时恢复自动播放
+  /**
+   * 鼠标离开继续自动播放
+   */
   const handleMouseLeave = () => {
-    if (duration > 0) {
-      autoPlay(); // 恢复自动播放
-    }
+    autoPlay();
   };
 
-  const containerClassNames = classNames('Slide-container', {
-    'has-transition-class-name': hasTransitionClassName,
-  });
+  const containerClassNames = classNames('Slide-container');
 
   return (
     <div
@@ -146,6 +192,7 @@ const Slide: React.FC<SlideProps> = ({
     >
       <div
         className={containerClassNames}
+        style={{ display: 'flex' }}
         ref={containerRef}
         onTransitionEnd={handleTransitionEnd}
       >
@@ -153,15 +200,18 @@ const Slide: React.FC<SlideProps> = ({
       </div>
       {dots && (
         <div className="Slide-dots-wrapper">
-          {React.Children.map(children, (child, index) => (
-            <span
-              key={index}
-              className={classNames('Slide-dot', {
-                active: current === index + 1,
-              })}
-              onClick={() => goTo(index + 1)}
-            />
-          ))}
+          {React.Children.map(children, (_, index) => {
+            const dotIndex = index + 1;
+            return (
+              <span
+                key={index}
+                className={classNames('Slide-dot', {
+                  active: current === dotIndex,
+                })}
+                onClick={() => goTo(dotIndex)}
+              />
+            );
+          })}
         </div>
       )}
     </div>
