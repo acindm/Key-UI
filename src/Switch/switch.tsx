@@ -44,15 +44,6 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
     const [switchStatus, setSwitchStatus] = useState<boolean>(defaultChecked);
 
     // 获取主题色
-    const getSiteTheme = () => {
-      return window.localStorage.getItem('dumi:prefers-color') || 'light';
-    };
-
-    const getRenderColor = (isDark: boolean): string => {
-      return isDark ? '#50c9d2' : '#325DFF';
-    };
-
-    const theme = getSiteTheme();
     const classes = classNames(className, 'cobalt-switch');
 
     // 切换开关状态
@@ -73,13 +64,11 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
         '--dot-transformY': small ? '2.5px' : '4px',
         '--dot-size': `${small ? '12px' : '16px'}`,
         '--child-transform': switchStatus ? '4px' : `${switchWidth - 30}px`,
-        '--switch-bg': switchStatus
-          ? getRenderColor(theme === 'auto' || theme === 'dark')
-          : 'rgba(201,205,212,1)',
+        '--switch-bg': switchStatus ? '#50c9d2' : 'rgba(201,205,212,1)', // 修改选中状态颜色
         '--disabled': disabled || loading ? 'not-allowed' : 'pointer',
         '--opacity': disabled || loading ? '0.6' : '1',
       };
-    }, [switchStatus, disabled, switchWidth, small, theme]);
+    }, [switchStatus, disabled, switchWidth, small]);
 
     // 动态计算子元素宽度
     useEffect(() => {
