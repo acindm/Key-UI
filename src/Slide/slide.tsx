@@ -14,6 +14,7 @@ export interface SlideProps {
   dots?: boolean;
   className?: string;
   style?: CSSProperties;
+  autoplay?: boolean;
   beforeChange?: (from: number, to: number) => void;
   afterChange?: (current: number, from: number) => void;
   children: React.ReactNode;
