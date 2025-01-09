@@ -8,18 +8,7 @@ export type IconTypes =
   | 'github'
   | 'juejin'
   | 'lightOrDark'
-  | 'loading';
+  | 'loading'
 
-const IconNames = [
-  'search',
-  'close',
-  'voice',
-  'photo',
-  'delete',
-  'user',
-  'github',
-  'juejin',
-  'lightOrDark',
-  'loading',
-];
-export default IconNames;
+const IconNames = ['search', 'close', 'voice', 'photo', 'delete', 'user', 'github', 'juejin', 'lightOrDark', 'loading']
+export default IconNames
