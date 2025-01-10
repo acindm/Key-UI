@@ -1,7 +1,8 @@
 # 🔑keyui
 
-![image-20220922130511080](https://github.com/acindm/Key-UI/blob/main/public/favicon.png)
-
+<p align="center">
+<img src="https://github.com/acindm/Key-UI/blob/main/public/favicon.png" style="width:100px;" />
+</p>
 Simple, Modular & Accessible UI Components for React App
 
 <div align="center">
