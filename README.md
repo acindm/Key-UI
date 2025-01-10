@@ -7,10 +7,8 @@ Simple, Modular & Accessible UI Components for React App
 
 <div align="center">
   <img src="https://img.shields.io/static/v1?label=React&message=v18.0.0&color=blue&style=flat-square"/>
-   <img src="https://img.shields.io/static/v1?label=TypeScript&message=%20&color=blue&style=flat-square"/>
-  <img src="https://img.shields.io/static/v1?label=SCSS&message=%20&color=ff69b4&style=flat-square&logoColor=white&labelColor=ff69b4"/>
-  [![NPM version](https://img.shields.io/npm/v/keyui.svg?style=flat)](https://npmjs.org/package/keyui)
-[![NPM downloads](http://img.shields.io/npm/dm/keyui.svg?style=flat)](https://npmjs.org/package/keyui)
+   <img src="https://img.shields.io/static/v1?label=TypeScript&message=v5.7.2&color=blue&style=flat-square"/>
+  <img src="https://img.shields.io/static/v1?label=SCSS&message=%0&color=ff69b4&style=flat-square&logoColor=white&labelColor=ff69b4"/>
 </div>
 
 ## 👀 基本介绍
