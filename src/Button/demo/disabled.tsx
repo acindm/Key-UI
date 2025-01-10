@@ -13,7 +13,7 @@ const App: FC = () => {
       <Button type="primary" disabled>
         Primary
       </Button>
-      <Button type="error" disabled>
+      <Button type="danger" disabled>
         Error
       </Button>
       <Button type="info" disabled>

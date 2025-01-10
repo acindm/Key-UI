@@ -7,7 +7,7 @@ const App: FC = () => {
       <Button>Default</Button>
       <Button type="primary">Primary</Button>
       <Button type="warning">Warning</Button>
-      <Button type="error">Error</Button>
+      <Button type="danger">Error</Button>
       <Button type="info">Info</Button>
       <Button type="link">Link</Button>
       <Button type="dashed">Dashed</Button>

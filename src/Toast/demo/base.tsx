@@ -25,7 +25,7 @@ const App: FC = () => {
       <Button type="warning" onClick={warning}>
         Warning
       </Button>
-      <Button type="error" onClick={error}>
+      <Button type="danger" onClick={error}>
         Error
       </Button>
     </Space>
