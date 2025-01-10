@@ -1,5 +1,5 @@
 ---
-title: Tab 标签页
+title: Tabs 标签页
 nav:
   title: 组件
   path: /src
@@ -9,23 +9,27 @@ group:
 
 # Tab 标签页
 
+用于组织内容区域，便于用户快速切换和查看不同的内容。
+
 ## 使用场景
 
-将内容分组并以标签的形式展示，允许用户通过点击标签在不同的内容区域之间切换。
+- **多视图切换**：在有限的空间内展示不同的内容。
+- **模块分组**：将信息分组并通过标签页进行切换。
+- **节省空间**：避免在页面上展示过多内容，保持界面整洁。
 
-## 样式：type = line
+## 默认样式：type = line
 
-默认选中第一项，type = line 的页签。
+Tabs 的默认样式为`line`，适用于常规场景，默认选中第一项：
 <code src="./demo/base.tsx"></code>
 
 ## 样式：type = card
 
-默认选中第一项，type = card 的页签。
+通过`type = card`切换到卡片风格的标签页，更适合模块化内容展示：
 <code src="./demo/type.tsx"></code>
 
 ## 禁用状态
 
-禁用某个 Tab。
+通过`disabled`属性禁用某个标签页，用户无法切换到该标签页：
 <code src="./demo/disabled.tsx"></code>
 
 ## API

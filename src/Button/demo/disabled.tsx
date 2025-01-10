@@ -5,25 +5,25 @@ const App: FC = () => {
   return (
     <Space>
       <Button type="default" disabled>
-        默认按钮
+        Default
       </Button>
       <Button type="warning" disabled>
-        警告按钮
+        Warning
       </Button>
       <Button type="primary" disabled>
-        基础按钮
+        Primary
       </Button>
-      <Button type="danger" disabled>
-        危险按钮
+      <Button type="error" disabled>
+        Error
       </Button>
       <Button type="info" disabled>
-        信息按钮
+        Info
       </Button>
       <Button type="link" disabled>
-        链接按钮
+        Link
       </Button>
       <Button type="dashed" disabled>
-        虚线按钮
+        Dashed
       </Button>
     </Space>
   );

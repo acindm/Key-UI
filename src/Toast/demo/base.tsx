@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 
 const App: FC = () => {
   const info = () => {
-    toast.info('This is a normal toast', 3);
+    toast.info('This is an info toast', 3);
   };
   const success = () => {
     toast.success('This is a success toast', 3);
@@ -18,14 +18,14 @@ const App: FC = () => {
   };
   return (
     <Space>
-      <Button onClick={info}>Normal</Button>
+      <Button onClick={info}>Info</Button>
       <Button type="primary" onClick={success}>
         Success
       </Button>
       <Button type="warning" onClick={warning}>
         Warning
       </Button>
-      <Button type="danger" onClick={error}>
+      <Button type="error" onClick={error}>
         Error
       </Button>
     </Space>

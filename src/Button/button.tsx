@@ -12,7 +12,7 @@ type ButtonProps = {
   type?:
     | 'primary'
     | 'default'
-    | 'danger'
+    | 'error'
     | 'link'
     | 'warning'
     | 'info'
