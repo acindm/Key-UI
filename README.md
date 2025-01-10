@@ -15,9 +15,9 @@ Simple, Modular & Accessible UI Components for React App
 
 Key-UI 是一套基于 React 和 TypeScript 开发的个人使用组件库
 
-👉🏻 设计风格参考了 Ant Design，侧重于提升开发效率与用户体验
-🥳 基于个人兴趣实现：Loading、Toast、Button、Space、Switch、Tabs、DragList、Slide、Virtualist 组件
-🌟 后续将持续进行组件库扩充，敬请期待
+- 设计风格参考了 Ant Design，侧重于提升开发效率与用户体验
+- 基于个人兴趣实现：Loading、Toast、Button、Space、Switch、Tabs、DragList、Slide、Virtualist 组件
+- 后续将持续进行组件库扩充，敬请期待 ~
 
 <div align="left">
   <h2>✨ 特性</h2>
