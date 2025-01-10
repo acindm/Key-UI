@@ -3,13 +3,13 @@
 <p align="center">
 <img src="https://github.com/acindm/Key-UI/blob/main/public/favicon.png" style="width:100px;" />
 </p>
-Simple, Modular & Accessible UI Components for React App
 
 <div align="center">
   <img src="https://img.shields.io/static/v1?label=React&message=v18.0.0&color=blue&style=flat-square"/>
    <img src="https://img.shields.io/static/v1?label=TypeScript&message=v5.7.2&color=blue&style=flat-square"/>
-  <img src="https://img.shields.io/static/v1?label=SCSS&message=%0&color=ff69b4&style=flat-square&logoColor=white&labelColor=ff69b4"/>
+  <img src="https://img.shields.io/static/v1?label=SCSS&message=%1&color=ff69b4&style=flat-square&logoColor=white&labelColor=ff69b4"/>
 </div>
+Simple, Modular & Accessible UI Components for React App
 
 ## 👀 基本介绍
 
