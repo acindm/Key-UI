@@ -1,0 +1,6 @@
+{
+  "extends":
+    "@umijs/lint/dist/config/stylelint",
+    "ignoreFiles": ["coverage/**/*.css"]
+
+}
