@@ -12,39 +12,33 @@ Simple, Modular & Accessible UI Components for React App
 [![NPM downloads](http://img.shields.io/npm/dm/keyui.svg?style=flat)](https://npmjs.org/package/keyui)
 </div>
 
-## Usage
+## 👀 基本介绍
 
-TODO
+Key-UI 是一套基于 React 和 TypeScript 开发的个人使用组件库
 
-## Options
+👉🏻 设计风格参考了 Ant Design，侧重于提升开发效率与用户体验
+🥳 基于个人兴趣实现：Loading、Toast、Button、Space、Switch、Tabs、DragList、Slide、Virtualist 组件
+🌟 后续将持续进行组件库扩充，敬请期待
 
-TODO
+<div align="left">
+  <h2>✨ 特性</h2>
+  <p>🌈 技术栈：React + TypeScript + SCSS</p>
+  <p>📦 开箱即用的 React 组件。目前仅用于个人使用</p>
+  <p>⚙️ 组件接口简单清晰，开发者可以快速上手</p>
+  <p>🤑 支持高度自定义，满足不同的设计需求</p>
+  <p>🎨 参考 Ant Design 设计风格，追求简洁高效 & 美观</p>
+</div>
 
-## Development
+## 📦 下载使用
+
+1. 安装并引入 KeyUI
 
 ```bash
-# install dependencies
-$ pnpm install
-
-# develop library by docs demo
-$ pnpm start
-
-# build library source code
-$ pnpm run build
-
-# build library source code in watch mode
-$ pnpm run build:watch
-
-# build docs
-$ pnpm run docs:build
-
-# Locally preview the production build.
-$ pnpm run docs:preview
-
-# check your project for potential problems
-$ pnpm run doctor
+pnpm install keyui
 ```
 
-## LICENSE
+2. cli 创建组件库模版
 
-MIT
+```bash
+pnpm run gen:component
+```
