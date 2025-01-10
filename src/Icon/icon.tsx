@@ -10,6 +10,7 @@ export type IconProps = {
   href?: string
   className?: string
   style?: React.CSSProperties
+  role?: string; // 添加 role 属性
 }
 //想要修改图标颜色必须的设置（踩坑后成功，重点关注下）
 const IconFont = ({ type, style, className, onClick }: IconProps) => {
